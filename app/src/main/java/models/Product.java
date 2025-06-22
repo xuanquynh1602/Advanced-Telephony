@@ -1,7 +1,6 @@
 package models;
 
 import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 
 public class Product implements Serializable {
@@ -10,28 +9,20 @@ public class Product implements Serializable {
     private int quantity;
     private double price;
     private int cateid;
-    private int image_id;
+    private int image_id; // chỉ dùng nếu bạn gán ảnh nội bộ
+    private String imageLink; // dùng cho ảnh từ URL
 
-    public Product() {
-    }
+    public Product() {}
 
-    public Product(int id, String name, int quantity, double price, int cateid, int image_id) {
+    public Product(int id, String name, int quantity, double price, int cateid, int image_id, String imageLink) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.price = price;
         this.cateid = cateid;
         this.image_id = image_id;
+        this.imageLink = imageLink;
     }
-
-    public Product(int id, String name, int quantity, double price, int image_id) {
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
-        this.image_id = image_id;
-    }
-
 
     public int getId() {
         return id;
@@ -57,8 +48,8 @@ public class Product implements Serializable {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
-        return (int) price;
+    public double getPrice() {
+        return price;
     }
 
     public void setPrice(double price) {
@@ -81,9 +72,29 @@ public class Product implements Serializable {
         this.image_id = image_id;
     }
 
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
+    public String getUnitPrice() {
+        return String.valueOf(price);
+    }
+
+    // Glide-compatible getter
+    public String getImage_link() {
+        return imageLink;
+    }
+
     @NonNull
     @Override
     public String toString() {
-        return id+"-"+name;
+        return id + " - " + name;
+    }
+
+    public void setCateId(int anInt) {
     }
 }

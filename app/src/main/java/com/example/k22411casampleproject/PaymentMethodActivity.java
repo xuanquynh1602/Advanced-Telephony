@@ -50,9 +50,9 @@ public class PaymentMethodActivity extends AppCompatActivity {
         lpm.gen_payment_method();
         adapter.addAll(lpm.getPaymentMethods());*/
 
-        pmc=new PaymentMethodConnector();
-        connectors.SQLiteConnector connector=new connectors.SQLiteConnector(this);
-        ArrayList<PaymentMethod>datasets=pmc.getAllPaymentMethod(new connectors.SQLiteConnector().openDatabase());
+        pmc = new PaymentMethodConnector();
+        connectors.SQLiteConnector connector = new connectors.SQLiteConnector(this);
+        ArrayList<PaymentMethod> datasets = pmc.getAllPaymentMethod(connector.openDatabase());
         adapter.addAll(datasets);
     }
 }

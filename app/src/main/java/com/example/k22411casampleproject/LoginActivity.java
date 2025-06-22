@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Employee e_login = ec.login(this,usr, pwd);
         if (e_login != null) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, CategoryManagementActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(this, "Login failed! check your account again!", Toast.LENGTH_LONG).show();

@@ -15,7 +15,7 @@ public class ListCategory {
     {
         categories=new ArrayList<>();
     }
-    public void generate_product_dataset()
+    /*public void generate_product_dataset()
     {
         Category c1 = new Category(110, "Soft Drink", 1);
         Product p1 = new Product(1, "Coca Cola", 100, 10.0, 200);
@@ -106,5 +106,5 @@ public class ListCategory {
         Product p50 = new Product(50, "Mango Sorbet", 50, 18.0, 240);
         c10.addProduct(p46); c10.addProduct(p47); c10.addProduct(p48); c10.addProduct(p49); c10.addProduct(p50);
         categories.add(c10);
-    }
+    }*/
 }

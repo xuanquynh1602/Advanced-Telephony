@@ -18,7 +18,7 @@ public class ListProducts {
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
-    public void generate_product_dataset() {
+    /*public void generate_product_dataset() {
         Product p1 = new Product(1, "Coca Cola", 100, 10.0, R.mipmap.cocacola);
         Product p2 = new Product(2, "Pepsi", 120, 9.5, R.mipmap.pepsi);
         Product p3 = new Product(3, "7Up", 90, 8.0, R.mipmap.sevenup);
@@ -29,5 +29,5 @@ public class ListProducts {
         products.add(p3);
         products.add(p4);
         products.add(p5);
-    }
+    }*/
 }

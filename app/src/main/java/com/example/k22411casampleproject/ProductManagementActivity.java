@@ -18,19 +18,30 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.adapters.ProductAdapter;
+
+import java.util.ArrayList;
+
+import connectors.CategoryConnector;
+import connectors.ProductConnector;
+import models.Category;
 import models.ListProduct;
 import models.Product;
 
 public class ProductManagementActivity extends AppCompatActivity {
 
-    ArrayAdapter<Product> adapter;
+    ProductAdapter adapter;
 
     ListView lvProduct;
+
     ListProduct lc=new ListProduct();
     MenuItem menu_new_product;
     MenuItem menu_broadcast_advertising;
 
     MenuItem menu_help;
+
+    ProductConnector pc;
+    int selectedCategoryId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +53,32 @@ public class ProductManagementActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        selectedCategoryId = getIntent().getIntExtra("SELECTED_CATEGORY_ID", -1);
+        if (selectedCategoryId == -1) {
+            Toast.makeText(this, "Không có danh mục nào được chọn", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
         addViews();
         addEvents();
     }
 
     private void addViews() {
-        lvProduct=findViewById(R.id.lvProduct);
-        adapter=new ArrayAdapter<>(
-                ProductManagementActivity.this,
-                android.R.layout.simple_list_item_1);
+        lvProduct = findViewById(R.id.lvProduct);
 
-        lc.generate_sample_dataset();
-        adapter.addAll(lc.getProduct());
+        pc = new ProductConnector();
+        connectors.SQLiteConnector connector = new connectors.SQLiteConnector(this);
+        ArrayList<Product> datasets = pc.getProductsByCategoryId(connector.openDatabase(), selectedCategoryId);
+
+        // Khởi tạo adapter với danh sách dữ liệu
+        adapter = new ProductAdapter(
+                ProductManagementActivity.this,
+                R.layout.item_advanced_product,
+                datasets
+        );
+
+        /*lc.generate_sample_dataset();
+        adapter.addAll(lc.getProduct());*/
         lvProduct.setAdapter(adapter);
 
         menu_new_product=findViewById(R.id.menu_new_product);

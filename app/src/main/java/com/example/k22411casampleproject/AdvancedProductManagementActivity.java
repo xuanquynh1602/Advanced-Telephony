@@ -34,12 +34,12 @@ public class AdvancedProductManagementActivity extends AppCompatActivity {
 
     private void addViews() {
         lvProduct=findViewById(R.id.lvProduct);
-        adapter=new ProductAdapter( AdvancedProductManagementActivity.this,
-                R.layout.item_advanced_product);
+        /*adapter=new ProductAdapter( AdvancedProductManagementActivity.this,
+                R.layout.item_advanced_product);*/
         lvProduct.setAdapter(adapter);
 
         ListProduct lp=new ListProduct();
-        lp.generate_sample_dataset();
+        /*lp.generate_sample_dataset();*/
         adapter.addAll(lp.getProduct());
     }
 }

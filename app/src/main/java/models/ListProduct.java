@@ -20,7 +20,7 @@ public class ListProduct {
     public void setProduct(ArrayList<Product> products) {
         this.products = products;
     }
-    public void generate_sample_dataset()
+    /*public void generate_sample_dataset()
     {
         addProduct(new Product(43, "Latte", 85, 17.5,118, 310));
         addProduct(new Product(44, "Black Coffee", 90, 12.0,118, 280));
@@ -30,7 +30,7 @@ public class ListProduct {
         addProduct(new Product(48, "Strawberry", 65, 19.5,119, 255));
         addProduct(new Product(49, "Matcha", 55, 22.0, 119,265));
         addProduct(new Product(50, "Mango Sorbet", 50, 18.0, 119,240));
-    }
+    }*/
 }
 
 
